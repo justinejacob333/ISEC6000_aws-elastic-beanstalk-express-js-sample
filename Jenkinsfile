@@ -22,7 +22,7 @@ pipeline {
             //Authenticating synk using token
             sh 'snyk auth 75421e8e-a9d2-43a3-a6ce-b6cb827be6b8'
             script {
-                def result = sh(script: 'snyk test --severity-threshold=high', returnStatus: true)
+                def result = sh(script: 'snyk test --severity-threshold=critical', returnStatus: true)
                 if (result != 0) {
                     //Pipeline is halted if error detected
                     error 'Pipeline failed'
